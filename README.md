@@ -4,19 +4,31 @@ Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-
 
 ## Comenzar
 
-1. Build libreria: 
-``` ng build idx-lib --prod ```
+Build libreria: 
+```
+ $ ng build idx-lib --prod
+```
 
-1. Correr aplicación para testing
-```ng serve tester-app```
+Correr aplicación para testing
+```
+$ ng serve tester-app
+```
+
+Ir a `localhost:4200/`
 
 ## Para desarrollo 
 
-1. Build libreria (con Ivy): junto a 
-``` ng build idx-lib --watch ```
+Build libreria (con Ivy): 
+``` 
+$ ng build idx-lib --watch 
+```
 
-1. Correr aplicación para testing
-```ng serve tester-app```
+Correr aplicación para testing
+```
+$ ng serve tester-app
+```
+
+Ir a `localhost:4200/`
 
 ## Explicación de los componentes
 Para una mejor entendimiento, revisar junto a [app.component.html](./projects/tester-app/src/app/app.component.html)
