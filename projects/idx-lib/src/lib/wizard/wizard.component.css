@@ -1,0 +1,89 @@
+:host {
+  display: block;
+  padding: 1rem;
+  border: 1px solid #007bff;
+  border-radius: 3px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.wizard-header {
+  margin-bottom: 1rem;
+}
+
+.wizard-title {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.wizard-timeline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wizard-timeline-n {
+  height: 40px;
+  width: 40px;
+  background: lightgray;
+  color: gray;
+  text-align: center;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.wizard-timeline-n.active {
+  color: white;
+  background: green;
+}
+.wizard-timeline-n.completed {
+  color: white;
+  background: #007bff;
+}
+
+.wizard-timeline-line {
+  height: 2px;
+  background: lightgray;
+  flex: 1;
+}
+
+.wizard-timeline-line.completed {
+  background: #007bff;
+}
+
+.wizard-content {
+  margin-bottom: 1rem;
+}
+
+.wizard-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wizard-btn {
+  color: white;
+  outline: none;
+  border: none;
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.wizard-btn:disabled {
+  background: lightgray !important;
+  color: gray;
+  cursor: default;
+}
+
+.wizard-btn.home,
+.wizard-btn.back {
+  background: #007bff;
+}
+
+.wizard-btn.next,
+.wizard-btn.finish {
+  background: green;
+}

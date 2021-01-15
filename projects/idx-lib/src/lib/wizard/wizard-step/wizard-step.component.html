@@ -1,0 +1,10 @@
+<h3 class="wizard-step-title">{{ title }}</h3>
+<form
+  #form
+  class="wizard-step-form"
+  method="get"
+  accept-charset="utf-8"
+  (submit)="(false)"
+>
+  <ng-content></ng-content>
+</form>

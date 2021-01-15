@@ -1,0 +1,55 @@
+<div class="calendar-inputs">
+  <div class="input-wrapper">
+    <button class="controller-btn" (click)="setYear(-1, true)">&lt;</button>
+    <input
+      type="number"
+      [value]="year"
+      class="input-year"
+      #yearInput
+      (change)="setYear(yearInput.value)"
+    />
+    <button class="controller-btn" (click)="setYear(1, true)">&gt;</button>
+  </div>
+  <div class="input-wrapper">
+    <button class="controller-btn" (click)="setMonth(-1, true)">&lt;</button>
+    <select
+      [value]="month"
+      class="input-month"
+      #monthInput
+      (change)="setMonth(monthInput.value)"
+    >
+      <ng-template ngFor let-month [ngForOf]="monthLabel" let-i="index">
+        <option value="{{ i }}">{{ month }}</option>
+      </ng-template>
+    </select>
+    <button class="controller-btn" (click)="setMonth(1, true)">&gt;</button>
+  </div>
+</div>
+<div class="calendar">
+  <div class="calendar-weekdays">
+    <div class="item weekday" *ngFor="let weekday of weekdayslabel">
+      {{ weekday }}
+    </div>
+  </div>
+
+  <div class="calendar-days" (click)="selectDate($event.target)">
+    <ng-template ngFor let-day [ngForOf]="placeholders">
+      <div *ngIf="day; then dateBlock; else emptyBlock"></div>
+      <ng-template #dateBlock>
+        <div
+          class="item day"
+          [class.active]="isCurrentDate(year, month, day)"
+          [attr.data-index]="day"
+        >
+          {{ day }}
+        </div>
+      </ng-template>
+      <ng-template #emptyBlock>
+        <div class="item empty"></div>
+      </ng-template>
+    </ng-template>
+  </div>
+</div>
+<div class="calendar-selected">
+  {{ date.toDateString() }}
+</div>

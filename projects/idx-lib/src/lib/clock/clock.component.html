@@ -1,0 +1,71 @@
+<header>
+  <h1 [ngSwitch]="mode">
+    <ng-container *ngSwitchCase="'clock'">Clock</ng-container>
+    <ng-container *ngSwitchCase="'timer'">Timer</ng-container>
+    <ng-container *ngSwitchCase="'stopwatch'">Stopwatch</ng-container>
+  </h1>
+</header>
+<section class="clock-section">
+  <div
+    *ngIf="mode === 'timer' && !isRunning; then inputBlock; else normalBlock"
+  ></div>
+
+  <ng-template #inputBlock>
+    <input
+      type="number"
+      class="hours"
+      #hoursInput
+      (input)="handleInput(hoursInput, 'h')"
+      [value]="padString(hours)"
+    />
+    <span class="separator">:</span>
+    <input
+      type="number"
+      class="minutes"
+      #minutesInput
+      (input)="handleInput(minutesInput, 'm')"
+      [value]="padString(minutes)"
+    />
+    <span class="separator">:</span>
+    <input
+      type="number"
+      class="seconds"
+      #secondsInput
+      (input)="handleInput(secondsInput, 's')"
+      [value]="padString(seconds)"
+    />
+  </ng-template>
+
+  <ng-template #normalBlock>
+    <span class="hours">{{ padString(hours) }}</span>
+    <span class="separator">:</span>
+    <span class="minutes">{{ padString(minutes) }}</span>
+    <span class="separator">:</span>
+    <span class="seconds">{{ padString(seconds) }}</span>
+  </ng-template>
+</section>
+
+<section *ngIf="mode !== 'clock'" class="buttons-section">
+  <button
+    *ngIf="!isRunning; else elseBtns"
+    class="btn start"
+    (click)="startTimer()"
+  >
+    Start
+  </button>
+  <ng-template #elseBtns>
+    <button class="btn stop" (click)="stopTimer()">Stop</button>
+
+    <button
+      *ngIf="!isPaused; else resumeBtn"
+      class="btn pause"
+      (click)="pauseTimer()"
+    >
+      Pause
+    </button>
+
+    <ng-template #resumeBtn>
+      <button class="btn pause" (click)="startTimer()">Resume</button>
+    </ng-template>
+  </ng-template>
+</section>

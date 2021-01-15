@@ -1,0 +1,58 @@
+header {
+  margin-bottom: 1rem;
+  color: #007bff;
+}
+
+.hours,
+.minutes,
+.seconds,
+.separator {
+  font-weight: bolder;
+  color: #007bff;
+  font-size: 2rem;
+  display: inline-block;
+  text-align: center;
+}
+
+.hours,
+.minutes,
+.seconds {
+  width: 70px;
+}
+
+:host {
+  display: block;
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+  padding: 1rem;
+  border: 2px solid lightblue;
+  border-radius: 3px;
+}
+
+.buttons-section {
+  margin-top: 1rem;
+}
+
+.btn {
+  outline: none;
+  border: none;
+  font-size: 1.5rem;
+  padding: 10px 16px;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+}
+
+.btn.start {
+  background: green;
+}
+
+.btn.stop {
+  background: red;
+}
+
+.btn.pause {
+  background: orange;
+  margin-left: 1rem;
+}

@@ -1,0 +1,94 @@
+:host {
+  border: 2px solid #007bff;
+  border-radius: 3px;
+  font-weight: 500;
+  display: block;
+  width: 100%;
+  max-width: 350px;
+  padding-top: 1rem;
+}
+
+.input-wrapper {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.input-year,
+.input-month {
+  font-size: 1.3rem;
+  outline: none;
+  border: 1px solid #007bff;
+  border-radius: 3px;
+  padding: 5px;
+  text-align: center;
+  color: #007bff;
+  font-weight: 500;
+  width: 50%;
+  background: none;
+  margin: 0 1rem;
+}
+
+.controller-btn {
+  background: none;
+  color: #007bff;
+  outline: none;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.controller-btn:hover {
+  background: #007bff;
+  color: white;
+  border-radius: 3px;
+}
+
+.calendar-weekdays,
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar-days {
+  grid-template-rows: repeat(6, 1fr);
+  margin-bottom: 1rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.calendar-weekdays {
+  background: #007bff;
+  color: white;
+}
+
+.item {
+  text-align: center;
+  padding: 5px 0;
+}
+
+.day {
+  border: 1px solid lightgray;
+  cursor: pointer;
+}
+
+.day:hover {
+  background: #007bff;
+  color: white;
+}
+
+.day.active {
+  background: #007bff;
+  color: white;
+}
+
+.empty {
+  background: lightgray;
+}
+
+.calendar-selected {
+  font-size: 1.2rem;
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 1rem;
+}

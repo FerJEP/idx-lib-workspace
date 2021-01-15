@@ -1,0 +1,39 @@
+<h1 class="app-title">App for testing idx-lib</h1>
+<div class="box">
+  <idx-clock (evTimeout)="handleClock()"></idx-clock>
+  <idx-clock [mode]="'timer'" (evTimeout)="handleClock()"></idx-clock>
+  <idx-clock [mode]="'stopwatch'" (evTimeout)="handleClock()"></idx-clock>
+</div>
+<div class="box">
+  <idx-wizard
+    [title]="'Create a new account'"
+    (evFinish)="handleWizard($event)"
+  >
+    <h1>THIS SHOULD NOT BE SHOWN</h1>
+    <h1>THIS SHOULD NOT BE SHOWN</h1>
+    <idx-wizard-step [title]="'Names'">
+      <label for="input-name"> Name: </label>
+      <input type="text" name="name" id="input-name" required />
+      <label for="input-lastname"> Last name: </label>
+      <input type="text" name="lastname" id="input-lastname" required />
+    </idx-wizard-step>
+    <h1>THIS SHOULD NOT BE SHOWN</h1>
+    <idx-wizard-step [title]="'Email & Birthday'">
+      <label for="input-email"> Email: </label>
+      <input type="email" name="email" id="input-email" required />
+      <label for="input-date"> Birthday: </label>
+      <input type="date" name="date" id="input-date" required />
+    </idx-wizard-step>
+    <h1>THIS SHOULD NOT BE SHOWN</h1>
+    <idx-wizard-step [title]="'Passwords'">
+      <label for="input-password"> Password: </label>
+      <input type="password" name="password" id="input-Password" required />
+      <label for="input-pwdrepeat"> Repeat password: </label>
+      <input type="password" name="pwdrepeat" id="input-pwdrepeat" required />
+    </idx-wizard-step>
+    <h1>THIS SHOULD NOT BE SHOWN</h1>
+  </idx-wizard>
+</div>
+<div class="box">
+  <idx-calendar (evSelect)="handleCalendar($event)"></idx-calendar>
+</div>

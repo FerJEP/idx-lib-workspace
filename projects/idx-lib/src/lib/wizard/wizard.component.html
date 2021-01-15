@@ -1,0 +1,61 @@
+<div class="wizard-header">
+  <h2 class="wizard-title">{{ title }}</h2>
+
+  <div class="wizard-timeline">
+    <ng-template ngFor let-form [ngForOf]="forms.toArray()" let-i="index">
+      <div
+        class="wizard-timeline-n"
+        [class.active]="form.index === currentForm.index"
+        [class.completed]="form.index < currentForm.index"
+      >
+        {{ i + 1 }}
+      </div>
+      <div
+        *ngIf="forms.length - 1 > i"
+        class="wizard-timeline-line"
+        [class.completed]="form.index < currentForm.index"
+      ></div>
+    </ng-template>
+  </div>
+</div>
+<div class="wizard-content">
+  <ng-content select="idx-wizard-step"></ng-content>
+</div>
+<div class="wizard-buttons">
+  <button
+    class="wizard-btn home"
+    (click)="goFirstForm()"
+    [disabled]="currentForm.index === 0"
+  >
+    Home
+  </button>
+  <button
+    class="wizard-btn back"
+    (click)="previousForm()"
+    [disabled]="currentForm.index === 0"
+  >
+    &lt; Back
+  </button>
+
+  <div
+    *ngIf="currentForm.index < forms.length - 1; then nextBtn; else finishBtn"
+  ></div>
+  <ng-template #nextBtn>
+    <button
+      class="wizard-btn next"
+      (click)="nextForm()"
+      [disabled]="!currentForm.valid()"
+    >
+      Next &gt;
+    </button>
+  </ng-template>
+  <ng-template #finishBtn>
+    <button
+      class="wizard-btn finish"
+      (click)="finishWizard()"
+      [disabled]="!checkWizardValidity()"
+    >
+      Finish
+    </button>
+  </ng-template>
+</div>
